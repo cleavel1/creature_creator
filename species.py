@@ -1,4 +1,4 @@
-class species:
+class Species:
     def __init__(self, attribute_names: list[str]):
         self.attributes = []
         for name in attribute_names:
