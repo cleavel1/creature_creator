@@ -5,13 +5,14 @@ class Creature:
         self.name = name
         self.age = age
         self.species = species
+        self.attributes = []
+        for attr in species.attribute_names:
+            self.attributes.append({
+                'name': attr,
+                'value': 'N/A'
+            })
 
-    def get_name(self) -> str:
-        return self.name
-    
-    def get_age(self) -> int:
-        return self.age
-    
-    def get_species(self) -> Species:
-        return self.species
-
+        def set_attribute(self, name: str, value: str):
+            for attr in self.attributes:
+                if attr['name'] == name:
+                    attr['value'] = value
