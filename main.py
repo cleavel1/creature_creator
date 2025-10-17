@@ -19,7 +19,7 @@ def create_species(name: str) -> Species:
 
 
 def create_creature():
-    print('\n\n')
+    print('\n')
     name = input('Creature name: ')
     age = input('Creature age: ')
     species_name = input('Species name: ')
