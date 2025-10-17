@@ -12,7 +12,7 @@ class Creature:
                 'value': 'N/A'
             })
 
-        def set_attribute(self, name: str, value: str):
-            for attr in self.attributes:
-                if attr['name'] == name:
-                    attr['value'] = value
+    def set_attribute(self, name: str, value: str):
+        for attr in self.attributes:
+            if attr['name'] == name:
+                attr['value'] = value
