@@ -17,7 +17,6 @@ def create_species(name: str) -> Species:
     species.append(new_species)
     return new_species
 
-
 def create_creature():
     print('\n\n')
     name = input('Creature name: ')
@@ -42,6 +41,25 @@ def create_creature():
 
     print('Creature created successfuly!')
 
+def edit_creature(creature: Creature):
+    print()
+    attr_name = input("Name of attribute to edit (or -1 to return): ")
+
+    match attr_name:
+        case -1: return
+        case "name" | "Name":
+            new_name = input("New name: ")
+            creature.name = new_name
+        case "age" | "Age":
+            new_age = input("New age: ")
+            creature.age = new_age
+        case _:
+            for attr in creature.attributes:
+                if(attr['name'] == attr_name):
+                    new_attr = input(f'New {attr['name']}: ')
+                    creature.set_attribute(attr['name'], new_attr)
+
+
 def view_creature(creature_name: str):
     print()
     for creature in creatures:
@@ -52,6 +70,10 @@ def view_creature(creature_name: str):
             print(f' {creature.species.name} specific attributes:')
             for attribute in creature.attributes:
                 print(f'  {attribute['name']}: {attribute['value']}')
+
+            edit = input('\nedit creature (y/n)? ')
+            if edit == 'y' or edit == 'yes':
+                edit_creature(creature)
 
 def view_creatures():
     for creature in creatures:
